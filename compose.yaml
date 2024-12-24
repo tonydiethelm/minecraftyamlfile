@@ -1,0 +1,21 @@
+#version: "3.8"
+
+services:
+  minecraft:
+    image: phyremaster/papermc
+    container_name: minecraft.changeme
+    tty: true
+    stdin_open: true
+    restart: always
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Etc/UTC
+    ports:
+      - "25570:25565"
+    environment:
+      EULA: "TRUE"
+      MOTD: "go change this in the server.properties file."
+    volumes:
+      # attach the relative directory 'data' to the container's /data path
+      - /home/hhh/minecraft.changeme/papermc:/papermc
